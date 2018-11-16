@@ -1,0 +1,17 @@
+node_modules/
+.idea/
+
+# secrets and build
+.env
+/build
+
+# we're using yarn
+package-lock.json
+
+# tmp folder used by mu2 devs
+tmp/
+!tmp/.gitkeep
+
+# misc
+*.log
+*.js
