@@ -5,5 +5,7 @@ const giphyKey = process.env.GIPHY_API_KEY;
 const giphyUrl = `https://api.giphy.com/v1/gifs/trending?api_key=${giphyKey}`;
 
 export default (app: Application) => app.get('/', (req: Request, res: Response) => {
-  request(giphyUrl).then((result: Response) => res.send(result));
+  request(giphyUrl)
+      .then((result: Response) => res.send(result))
+      .catch(err => res.status(err.statusCode).send(err));
 });
