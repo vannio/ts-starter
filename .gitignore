@@ -15,4 +15,5 @@ tmp/
 # misc
 *.log
 src/**/*.js
+test/**/*.js
 *.rdb
