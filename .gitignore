@@ -14,4 +14,5 @@ tmp/
 
 # misc
 *.log
-*.js
+src/**/*.js
+*.rdb
