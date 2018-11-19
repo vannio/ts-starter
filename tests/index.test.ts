@@ -1,6 +1,5 @@
-const nock = require('nock');
-const supertest = require('supertest');
-const { Response } = require('express');
+import nock from 'nock';
+import request, { Response } from 'supertest';
 
 describe('index.ts', () => {
   nock('https://api.giphy.com')
@@ -9,14 +8,12 @@ describe('index.ts', () => {
     .reply(200, require('./fixtures/giphy-trending.json'));
 
   describe('GET /api.giphy.com/v1/gifs/trending', () => {
-    test('should return 200', done => {
+    test('should return 200', async () => {
       const app = require('../src/index');
-
-      supertest(app)
+      return request(app)
         .get('/')
         .then((response: Response) => {
-          expect(response.statusCode).toBe(200);
-          done();
+          return expect(response.status).toBe(200);
         });
     });
   });
